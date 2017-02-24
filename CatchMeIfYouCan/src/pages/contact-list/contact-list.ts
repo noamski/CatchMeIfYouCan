@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'page-contact-list',
-  templateUrl: 'contact-list.html',
-  styleUrls: ['contact-list.scss']
+  templateUrl: 'contact-list.html'
 })
 export class ContactListPage {
   constructor() {
