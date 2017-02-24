@@ -7,6 +7,7 @@ import { StatusBar, Splashscreen, Geolocation } from 'ionic-native';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 import { ContactListPage } from '../pages/contact-list/contact-list';
+import { LoginPage } from '../pages/login-page/login-page';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,6 +29,7 @@ export class MyApp {
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
+      { title: 'Login Page', component: LoginPage },
       { title: 'Contact List', component: ContactListPage }
     ];
   }
