@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar, Splashscreen, Geolocation } from 'ionic-native';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
@@ -45,5 +45,17 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+
+    Geolocation.getCurrentPosition().then((resp) => {
+
+      console.log(resp.coords);
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+
   }
 }
+
+/**
+ * api token
+ **/
