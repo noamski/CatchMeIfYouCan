@@ -4,8 +4,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'page-contact-list-ionic',
-  templateUrl: 'contact-list.html'
+  selector: 'page-contact-list',
+  templateUrl: 'contact-list.html',
+  styleUrls: ['contact-list.scss']
 })
 export class ContactListPage {
   constructor() {
