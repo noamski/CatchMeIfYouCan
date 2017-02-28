@@ -6,6 +6,7 @@ import { StatusBar, Splashscreen, Geolocation } from 'ionic-native';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
+import {GeoMapComponent} from "../pages/home/GeoMap.component/GeoMap.component";
 
 
 @Component({
@@ -27,7 +28,8 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'My First List', component: ListPage },
+      { title: 'Saddasasd', component: GeoMapComponent }
     ];
   }
 
