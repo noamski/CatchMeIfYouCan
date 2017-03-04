@@ -6,10 +6,12 @@ import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 import { ContactListPage } from '../pages/contact-list/contact-list';
 import { LoginPage } from '../pages/login-page/login-page';
+import { Home } from '../pages/home/home';
 
 @NgModule({
   declarations: [
     MyApp,
+    Home,
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
@@ -22,6 +24,7 @@ import { LoginPage } from '../pages/login-page/login-page';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    Home,
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
