@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen, NativeStorage } from 'ionic-native';
 
 import { Home } from '../pages/home/home';
@@ -16,10 +16,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(
-    public platform: Platform,
-    public menu: MenuController
-  ) {
+  constructor( public platform: Platform ) {
     platform.ready().then(() => {
 
       // Here we will check if the user is already logged in

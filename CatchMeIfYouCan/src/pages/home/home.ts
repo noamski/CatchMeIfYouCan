@@ -3,11 +3,12 @@
  */
 
 import { Component, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav } from 'ionic-angular';
-import { StatusBar, Splashscreen, Geolocation } from 'ionic-native';
+import { Platform, MenuController, Nav, NavController } from 'ionic-angular';
+import { StatusBar, Splashscreen, Geolocation, Facebook, NativeStorage } from 'ionic-native';
 
 import { HelloIonicPage } from '../hello-ionic/hello-ionic';
 import { ListPage } from '../list/list';
+import { LoginPage } from '../login-page/login-page';
 import { ContactListPage } from '../contact-list/contact-list';
 
 @Component({
@@ -23,7 +24,8 @@ export class Home {
 
   constructor(
     public platform: Platform,
-    public menu: MenuController
+    public menu: MenuController,
+    public navCtrl: NavController
   ) {
     this.initializeApp();
 
@@ -56,6 +58,17 @@ export class Home {
     }).catch((error) => {
       console.log('Error getting location', error);
     });
+  }
 
+  logOff() {
+    var nav = this.navCtrl;
+    Facebook.logout()
+      .then(function(response) {
+        //user logged out so we will remove him from the NativeStorage
+        NativeStorage.remove('user');
+        nav.push(LoginPage);
+      }, function(error){
+        console.log(error);
+      });
   }
 }
