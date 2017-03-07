@@ -5,14 +5,18 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 import { ContactListPage } from '../pages/contact-list/contact-list';
+import { LoginPage } from '../pages/login-page/login-page';
+import { Home } from '../pages/home/home';
 
 @NgModule({
   declarations: [
     MyApp,
+    Home,
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    ContactListPage
+    ContactListPage,
+    LoginPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,10 +24,12 @@ import { ContactListPage } from '../pages/contact-list/contact-list';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    Home,
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    ContactListPage
+    ContactListPage,
+    LoginPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
