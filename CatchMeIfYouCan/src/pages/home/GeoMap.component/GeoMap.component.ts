@@ -13,34 +13,27 @@ declare var google;
 })
 export class GeoMapComponent {
 
+  // REF TO ELEMENT ON PAGE
   @ViewChild('map') mapElement: ElementRef;
    map: any;
 
   constructor(private navCtrl: NavController, private platform: Platform) {
   }
 
+  /**
+   * Gets promise of coordinates of the device
+   * @returns {Promise<Coordinates>|Promise<Geoposition>|Promise<TResult2|Coordinates>}
+   */
   private getPosition() {
     return Geolocation.getCurrentPosition()
       .then(function (data) {
         return data.coords;
       });
   }
-  setupGoogleMapOnDevice(coords) {
-    // somewhere in your component
-    this.map = new GoogleMap('map');
 
-    let marker = new GoogleMapsMarker(this.map);
-    marker.setTitle("Teste");
-    let latLng = new GoogleMapsLatLng(coords.latitude, coords.longitude);
-    marker.setPosition(latLng);
-
-    this.map.setCenter(latLng);
-    this.map.setZoom(12);
-
-    this.map.on(GoogleMapsEvent.MAP_READY)
-      .subscribe(() => console.log("Map is ready!"));
-  }
-
+  /** BUILT IN FUNCTION IN IONIC THAT I OVERRIDE
+   * Basically checks which device you are and sets google map accordingly, browser not done yet
+   */
   ionViewDidLoad(){
     this.platform.ready().then(() => {
       if (!this.platform.is('os') && !this.platform.is('android')) {
@@ -51,10 +44,30 @@ export class GeoMapComponent {
     });
   }
 
-  loadMap(){
+  /**
+   * Sets on device (not browser) the google map using the plugin
+   * @param coords
+   */
+  setupGoogleMapOnDevice(coords) {
+    // somewhere in your component
+    this.map = new GoogleMap('map');
 
+    let marker = new GoogleMapsMarker(this.map);
+    marker.setTitle("Teste");
+    let latLng = new GoogleMapsLatLng(coords.latitude, coords.longitude);
+    marker.setPosition(latLng);
 
+    this.map.setCenter(latLng);
+    this.map.setZoom(15);
+
+    this.map.on(GoogleMapsEvent.MAP_READY)
+      .subscribe(() => console.log("Map is ready!"));
   }
+
+  /**
+   * Sets on browser, NOT DONE YET
+   * @param coords
+   */
   setupGoogleMapOnWeb(coords) {
     let latLng = new google.maps.LatLng(coords.latitude, coords.longitude);
     let mapOptions = {
