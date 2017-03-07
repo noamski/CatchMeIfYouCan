@@ -4,6 +4,8 @@ import { MyApp } from './app.component';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
+import { ContactListPage } from '../pages/contact-list/contact-list';
+import { LoginPage } from '../pages/login-page/login-page';
 import {GeoMapComponent} from "../pages/home/GeoMap.component/GeoMap.component";
 
 @NgModule({
@@ -12,7 +14,10 @@ import {GeoMapComponent} from "../pages/home/GeoMap.component/GeoMap.component";
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    GeoMapComponent
+    GeoMapComponent,
+    ListPage,
+    ContactListPage,
+    LoginPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -22,6 +27,9 @@ import {GeoMapComponent} from "../pages/home/GeoMap.component/GeoMap.component";
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
+    ListPage,
+    ContactListPage,
+    LoginPage,
     ListPage,
     GeoMapComponent
   ],

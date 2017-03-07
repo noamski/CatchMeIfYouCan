@@ -1,13 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
-
-import { StatusBar, Splashscreen, Geolocation } from 'ionic-native';
+import { StatusBar, Splashscreen, Geolocation, Facebook, NativeStorage } from 'ionic-native';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 import {GeoMapComponent} from "../pages/home/GeoMap.component/GeoMap.component";
 
+import { ContactListPage } from '../pages/contact-list/contact-list';
+import {LoginPage} from "../pages/login-page/login-page";
 
 @Component({
   templateUrl: 'app.html'
@@ -23,14 +24,24 @@ export class MyApp {
     public platform: Platform,
     public menu: MenuController
   ) {
-    this.initializeApp();
+    let env = this;
+    NativeStorage.getItem('user')
+      .then(function (data){
+        env.nav.push(HelloIonicPage);
+        Splashscreen.hide();
+      }, function(error) {
+        env.nav.push(LoginPage);
+        Splashscreen.hide();
+      });
 
-    // set our app's pages
-    this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage },
-      { title: 'Saddasasd', component: GeoMapComponent }
-    ];
+    StatusBar.styleDefault();
+    //
+    // // set our app's pages
+    // this.pages = [
+    //   { title: 'Hello Ionic', component: HelloIonicPage },
+    //   { title: 'My First List', component: ListPage },
+    //   { title: 'Contact List', component: ContactListPage }
+    // ];
   }
 
   initializeApp() {
